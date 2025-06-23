@@ -1,3 +1,5 @@
+a = int(input('Enter a for a*b : '))
+b = int(input('Enter b for a*b : '))
 def MultiplyLoops(n,m):
   return n*m
 
@@ -7,9 +9,6 @@ def MultiplyN(n,m):
     result += m
   return result
 
-print(MultiplyLoops(2,3))
-print(MultiplyLoops(8,9))
+print('1 iteration answer: ', MultiplyLoops(a,b))
 
-print(MultiplyN(5,6))
-print(MultiplyN(4,7))
-  
+print('N iteration answer: ', MultiplyN(a,b))
