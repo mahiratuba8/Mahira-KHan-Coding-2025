@@ -8,4 +8,4 @@ def myfunction(n):
     for i in range(0,100):
         print('third loop') #O(1)
 
-#o(n)+o(logn)+o(1)=O(n)
+# o(n)+o(logn)+o(1)= O(n)
