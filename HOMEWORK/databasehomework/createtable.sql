@@ -1,0 +1,32 @@
+CREATE TABLE EMPLOYER(
+EMPLOYER_ID TEXT PRIMARY KEY,
+POSITION TEXT,
+DXC_BUIDLING_LOCATION TEXT,
+NAME TEXT,
+AGE INTEGER,
+COMPANY_PURCHASE INTEGER,
+COMPANY_APPROVAL TEXT
+);
+
+INSERT INTO EMPLOYER (
+EMPLOYER_ID, 
+POSITION,
+DXC_BUIDLING_LOCATION, 
+NAME, 
+AGE,
+COMPANY_PURCHASE,
+COMPANY_APPROVAL
+)
+
+VALUES
+('EMP001', 'Manager', 'DXC Tower A - New York', 'Tarun Mehta', 38, 25000, 'Yes'),
+
+('EMP002', 'IT Analyst', 'DXC Tower B - Paris', 'Ravi Sharma', 29, 15000, 'Yes'),
+
+('EMP003', 'HR Associate', 'DXC Tower C - Venice', 'Neha Gupta', 32, 8000, 'No'),
+
+('EMP004', 'Finance Lead', 'DXC Tower A - Shenghai', 'Anjali Rao', 41, 45000, 'Yes'),
+
+('EMP005', 'Intern', 'DXC Tower B - Seoul', 'Suresh Yadav', 23, 1000000, 'No');
+
+SELECT * FROM EMPLOYER;
