@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS Salesmen(
     comission TEXT
 );
 
-INSERT INTO Salesmen(
+INSERT OR IGNORE INTO Salesmen(
     salesmen_id,
     name,
     city,
@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS customer(
     salesmen_id TEXT
 );
 
-INSERT INTO customer(
+INSERT OR IGNORE INTO customer(
     customer_id,
     cust_name,
     city,
@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS orders(
     salesmen_id TEXT
 );
 
-INSERT INTO orders(
+INSERT  OR IGNORE INTO orders(
     order_no,
     p_amt,
     order_date,
@@ -66,10 +66,25 @@ VALUES
     ("70004","110.5","2012-08-17","3009","5007"),
     ("70007","948.5","2012-09-10","3005","5005"),
     ("70005","2400.6","2012-07-27","3007","5006");
+---this is the query to match customers tables with the city
+--SELECT customer.cust_name, Salesmen.name, Salesmen.city FROM customer JOIN Salesmen ON LOWER(customer.city) = LOWER(Salesmen.city);
 
-SELECT 
-    customer.cust_name,
-    Salesmen.name,
-    Salesmen.city
-FROM customer
-JOIN Salesmen ON LOWER(customer.city) = LOWER(Salesmen.city);
+--linking the customers to their salesmen
+--SELECT customer.cust_name, Salesmen.name FROM customer JOIN Salesmen ON customer.salesmen_id = Salesmen.salesmen_id;
+
+--fetching orders where customers city does  not match salesmen city
+--SELECT orders.order_no, customer.cust_name, orders.customer_id, orders.salesmen_id FROM orders 
+--JOIN customer ON orders.customer_id = customer.customer_id 
+--JOIN Salesmen ON orders.salesmen_id = Salesmen.salesmen_id
+--WHERE customer.city <> Salesmen.city;
+
+--fetching all the orders with customer names
+--SELECT orders.order_no, customer.cust_name FROM orders JOIN customer ON orders.customer_id = customer.customer_id;
+
+--Customers woth grades
+
+--SELECT customer.cust_name AS 'customer', customer.grade AS 'grade' FROM orders JOIN Salesmen ON orders.salesmen_id = Salesmen.salesmen_id JOIN customer ON orders.customer_id = customer.customer_id WHERE customer.grade IS NOT NULL;
+
+--customers with salesmen which we have to use both of these table with 0.12 and 0.14
+
+SELECT customer.cust_name, customer.city, Salesmen.name, Salesmen.comission FROM customer JOIN Salesmen ON customer.salesmen_id = Salesmen.salesmen_id WHERE Salesmen.comission BETWEEN 0.12 AND 0.14;
