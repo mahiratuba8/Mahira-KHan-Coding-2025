@@ -18,4 +18,4 @@ VALUES
 (4, 'Linux 6.5 released with major updates', 275, 'linuxdev'),
 (5, 'AI beats humans in code competitions', 610, 'aifan');
 
-SELECT author, title, score AS 'TOP RATED NEWS' FROM hacker_news WHERE score > 300;
+SELECT author, title, score AS 'TOP RATED NEWS' FROM hacker_news WHERE score > 300; 

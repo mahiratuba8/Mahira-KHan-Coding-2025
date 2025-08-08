@@ -87,4 +87,13 @@ VALUES
 
 --customers with salesmen which we have to use both of these table with 0.12 and 0.14
 
-SELECT customer.cust_name, customer.city, Salesmen.name, Salesmen.comission FROM customer JOIN Salesmen ON customer.salesmen_id = Salesmen.salesmen_id WHERE Salesmen.comission BETWEEN 0.12 AND 0.14;
+--SELECT customer.cust_name, customer.city, Salesmen.name, Salesmen.comission FROM customer JOIN Salesmen ON customer.salesmen_id = Salesmen.salesmen_id WHERE Salesmen.comission BETWEEN 0.12 AND 0.14;
+
+--calculating comisions for orders where customer grade is 200 or more 
+--SELECT orders.order_no, customer.cust_name, Salesmen.comission, orders.p_amt * Salesmen.comission AS 'comission' FROM orders JOIN Salesmen ON orders.salesmen_id = Salesmen.salesmen_id JOIN customer ON orders.customer_id = customer.customer_id WHERE customer.grade >= 200;
+
+--orders that are on a specific date by 10 5th october 2012
+--SELECT * FROM customer JOIN orders ON orders.customer_id = customer.customer_id WHERE orders.order_date = '2012-10-05';
+
+
+
